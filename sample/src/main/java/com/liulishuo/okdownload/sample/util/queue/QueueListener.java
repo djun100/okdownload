@@ -79,19 +79,7 @@ class QueueListener extends DownloadListener1 {
                 holder.statusTv.setText(EndCause.COMPLETED.toString());
                 holder.progressBar.setProgress(holder.progressBar.getMax());
             } else {
-                switch (statusOnStore) {
-                    case IDLE:
-                        holder.statusTv.setText(R.string.state_idle);
-                        break;
-                    case PENDING:
-                        holder.statusTv.setText(R.string.state_pending);
-                        break;
-                    case RUNNING:
-                        holder.statusTv.setText(R.string.state_running);
-                        break;
-                    default:
-                        holder.statusTv.setText(R.string.state_unknown);
-                }
+                holder.statusTv.setText(statusOnStore.toString());
 
                 if (statusOnStore == StatusUtil.Status.UNKNOWN) {
                     holder.progressBar.setProgress(0);
@@ -106,7 +94,6 @@ class QueueListener extends DownloadListener1 {
                         holder.progressBar.setProgress(0);
                     }
                 }
-
             }
         }
     }

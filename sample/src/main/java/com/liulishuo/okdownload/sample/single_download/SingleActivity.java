@@ -91,10 +91,10 @@ public class SingleActivity extends BaseSampleActivity {
             @Override public void onClick(View v) {
                 final boolean started = task.getTag() != null;
                 if (started) {
-                    task.cancel();
+                    UtilDownload.stopDownloadTask(task);
                 } else {
                     actionTv.setText(R.string.cancel);
-                    task.enqueue(mSingleDownloadListener);
+                    UtilDownload.startDownloadTask(task,mSingleDownloadListener);
                     task.setTag("mark-task-started");
                 }
             }
@@ -107,7 +107,7 @@ public class SingleActivity extends BaseSampleActivity {
 
     @Override protected void onDestroy() {
         super.onDestroy();
-        if (task != null) task.cancel();
+        UtilDownload.stopDownloadTask(task);
     }
 
     class SingleDownloadListener extends DownloadListener4WithSpeed{
