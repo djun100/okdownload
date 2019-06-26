@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/activity_padding_top"
     android:paddingBottom="10dp"
-    tools:context=".SingleActivity">
+    tools:context=".single_download.SingleActivity">
 
     <TextView
         android:id="@+id/statusTv"

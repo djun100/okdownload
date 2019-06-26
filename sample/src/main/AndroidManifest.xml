@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SingleActivity"/>
+        <activity android:name=".single_download.SingleActivity"/>
         <activity android:name=".QueueActivity"/>
         <activity android:name=".EachBlockProgressActivity"/>
         <activity android:name=".BunchActivity"/>

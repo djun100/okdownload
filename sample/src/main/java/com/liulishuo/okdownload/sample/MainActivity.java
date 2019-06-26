@@ -22,6 +22,7 @@ import android.support.annotation.Nullable;
 
 import com.liulishuo.okdownload.core.Util;
 import com.liulishuo.okdownload.sample.base.BaseListActivity;
+import com.liulishuo.okdownload.sample.single_download.SingleActivity;
 
 public class MainActivity extends BaseListActivity {
 

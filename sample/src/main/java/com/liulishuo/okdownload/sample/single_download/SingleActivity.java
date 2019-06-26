@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.liulishuo.okdownload.sample;
+package com.liulishuo.okdownload.sample.single_download;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,6 +32,7 @@ import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo;
 import com.liulishuo.okdownload.core.cause.EndCause;
 import com.liulishuo.okdownload.core.listener.DownloadListener4WithSpeed;
 import com.liulishuo.okdownload.core.listener.assist.Listener4SpeedAssistExtend;
+import com.liulishuo.okdownload.sample.R;
 import com.liulishuo.okdownload.sample.base.BaseSampleActivity;
 import com.liulishuo.okdownload.sample.util.DemoUtil;
 import com.liulishuo.okdownload.sample.util.UtilDownload;
