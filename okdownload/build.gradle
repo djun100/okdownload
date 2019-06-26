@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         versionName VERSION_NAME as String
@@ -33,7 +32,7 @@ dependencies {
     compileOnly dep.findbugsAnnotations
 }
 
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+
 if (hasProperty("isCI")) {
     apply from: rootProject.file('gradle/codecov.gradle')
 }

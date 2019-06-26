@@ -29,8 +29,7 @@
         style="@style/CardView.Sample"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/radioGroup"
+        app:layout_constraintLeft_toLeftOf="@+id/deleteActionView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -49,9 +48,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:contentPadding="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/actionView"
         app:layout_constraintRight_toLeftOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@id/actionView">
+        >
 
         <TextView
             android:id="@+id/deleteActionTv"
@@ -95,6 +94,14 @@
             android:text="@string/parallel"/>
     </RadioGroup>
 
+    <Button
+        android:id="@+id/btnSingleTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="startOrPauseSingleTask"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteActionView" />
     <View
         android:id="@+id/split_view"
         android:layout_width="0dp"
@@ -103,7 +110,7 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteActionView"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnSingleTask"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -18,7 +18,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     compileOptions {
         sourceCompatibility rootProject.ext.sourceCompatibilityVersion
@@ -50,4 +49,3 @@ dependencies {
     compileOnly dep.findbugsAnnotations
 }
 
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

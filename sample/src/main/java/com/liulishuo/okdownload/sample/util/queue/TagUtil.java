@@ -20,59 +20,59 @@ import android.support.annotation.Nullable;
 
 import com.liulishuo.okdownload.DownloadTask;
 
-class TagUtil {
+public class TagUtil {
     private static final int KEY_STATUS = 0;
     private static final int KEY_OFFSET = 1;
     private static final int KEY_TOTAL = 2;
     private static final int KEY_TASK_NAME = 3;
     private static final int KEY_PRIORITY = 4;
 
-    static void saveStatus(DownloadTask task, String status) {
+    public static void saveStatus(DownloadTask task, String status) {
         task.addTag(KEY_STATUS, status);
     }
 
-    @Nullable static String getStatus(DownloadTask task) {
+    @Nullable public static String getStatus(DownloadTask task) {
         final Object status = task.getTag(KEY_STATUS);
         return status != null ? (String) status : null;
     }
 
-    static void saveOffset(DownloadTask task, long offset) {
+    public static void saveOffset(DownloadTask task, long offset) {
         task.addTag(KEY_OFFSET, offset);
     }
 
-    static long getOffset(DownloadTask task) {
+    public static long getOffset(DownloadTask task) {
         final Object offset = task.getTag(KEY_OFFSET);
         return offset != null ? (long) offset : 0;
     }
 
-    static void saveTotal(DownloadTask task, long total) {
+    public static void saveTotal(DownloadTask task, long total) {
         task.addTag(KEY_TOTAL, total);
     }
 
-    static long getTotal(DownloadTask task) {
+    public static long getTotal(DownloadTask task) {
         final Object total = task.getTag(KEY_TOTAL);
         return total != null ? (long) total : 0;
     }
 
-    static void saveTaskName(DownloadTask task, String name) {
+    public static void saveTaskName(DownloadTask task, String name) {
         task.addTag(KEY_TASK_NAME, name);
     }
 
-    static String getTaskName(DownloadTask task) {
+    public static String getTaskName(DownloadTask task) {
         final Object taskName = task.getTag(KEY_TASK_NAME);
         return taskName != null ? (String) taskName : null;
     }
 
-    static void savePriority(DownloadTask task, int priority) {
+    public static void savePriority(DownloadTask task, int priority) {
         task.addTag(KEY_PRIORITY, priority);
     }
 
-    static int getPriority(DownloadTask task) {
+    public static int getPriority(DownloadTask task) {
         final Object priority = task.getTag(KEY_PRIORITY);
         return priority != null ? (int) priority : 0;
     }
 
-    static void clearProceedTask(DownloadTask task) {
+    public static void clearProceedTask(DownloadTask task) {
         task.removeTag(KEY_STATUS);
         task.removeTag(KEY_OFFSET);
         task.removeTag(KEY_TOTAL);

@@ -34,6 +34,7 @@ import com.liulishuo.okdownload.core.listener.DownloadListener4WithSpeed;
 import com.liulishuo.okdownload.core.listener.assist.Listener4SpeedAssistExtend;
 import com.liulishuo.okdownload.sample.base.BaseSampleActivity;
 import com.liulishuo.okdownload.sample.util.DemoUtil;
+import com.liulishuo.okdownload.sample.util.UtilDownload;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -44,7 +45,6 @@ import java.security.MessageDigest;
 import java.util.List;
 import java.util.Map;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * On this demo you can see the simplest way to download a task.
@@ -81,12 +81,14 @@ public class SingleActivity extends BaseSampleActivity {
     }
 
     private void initTask() {
-        final String filename = "single-test";
-        final String url =
-                "https://cdn.llscdn.com/yy/files/xs8qmxn8-lls-LLS-5.8-800-20171207-111607.apk";
+        UtilDownload.BeanUrl beanUrl=new UtilDownload.BeanUrl()
+                .setUrl("http://dldir1.qq.com/weixin/android/weixin6516android1120.apk")
+                .setName("single-test");
+
+
         final File parentFile = DemoUtil.getParentFile(this);
-        task = new DownloadTask.Builder(url, parentFile)
-                .setFilename(filename)
+        task = new DownloadTask.Builder(beanUrl.getUrl(), parentFile)
+                .setFilename(beanUrl.getName())
                 // the minimal interval millisecond for callback progress
                 .setMinIntervalMillisCallbackProcess(16)
                 // ignore the same task has already completed in the past.
@@ -207,7 +209,6 @@ public class SingleActivity extends BaseSampleActivity {
         });
     }
 
-    @SuppressFBWarnings(value = "REC")
     public static String fileToMD5(String filePath) {
         InputStream inputStream = null;
         try {

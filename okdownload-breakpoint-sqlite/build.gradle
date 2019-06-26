@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     compileOptions {
         sourceCompatibility rootProject.ext.sourceCompatibilityVersion
@@ -30,7 +29,7 @@ dependencies {
     compileOnly project(':okdownload')
 }
 
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+
 if (hasProperty("isCI")) {
     apply from: rootProject.file('gradle/codecov.gradle')
 }
