@@ -74,8 +74,8 @@ public class SingleActivity extends BaseSampleActivity {
         mSingleDownloadListener=new SingleDownloadListener();
 
 
-        final StatusUtil.Status status = StatusUtil.getStatus(task);
-        final BreakpointInfo info = StatusUtil.getCurrentInfo(task);
+        final StatusUtil.Status status = UtilDownload.getInitStatus(task);
+        final BreakpointInfo info = UtilDownload.getInitBreakpointInfo(task);
 
         if (status == StatusUtil.Status.COMPLETED) {
             progressBar.setProgress(progressBar.getMax());
@@ -107,11 +107,6 @@ public class SingleActivity extends BaseSampleActivity {
     @Override protected void onDestroy() {
         super.onDestroy();
         if (task != null) task.cancel();
-    }
-
-    private boolean isTaskRunning() {
-        final StatusUtil.Status status = StatusUtil.getStatus(task);
-        return status == StatusUtil.Status.PENDING || status == StatusUtil.Status.RUNNING;
     }
 
     class SingleDownloadListener extends DownloadListener4WithSpeed{

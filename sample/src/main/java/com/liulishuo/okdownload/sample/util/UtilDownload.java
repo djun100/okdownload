@@ -2,6 +2,8 @@ package com.liulishuo.okdownload.sample.util;
 
 import com.cy.app.UtilContext;
 import com.liulishuo.okdownload.DownloadTask;
+import com.liulishuo.okdownload.StatusUtil;
+import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo;
 
 import java.io.File;
 
@@ -19,8 +21,29 @@ public class UtilDownload {
         return task;
     }
 
+    public static boolean isTaskRunning(DownloadTask task) {
+        final StatusUtil.Status status = StatusUtil.getStatus(task);
+        return status == StatusUtil.Status.PENDING || status == StatusUtil.Status.RUNNING;
+    }
 
+    /**eg:status == StatusUtil.Status.COMPLETED
+     * status.toString()
+     * @param task
+     * @return
+     */
+    public static StatusUtil.Status getInitStatus(DownloadTask task){
+        return StatusUtil.getStatus(task);
+    }
 
+    /**eg:info.toString()
+     * info.getTotalOffset()    已下载byte
+     * info.getTotalLength()    文件大小byte
+     * @param task
+     * @return
+     */
+    public static BreakpointInfo getInitBreakpointInfo(DownloadTask task){
+        return StatusUtil.getCurrentInfo(task);
+    }
 
 //    public static DownloadTask getDownloadTask(String url){
 //
