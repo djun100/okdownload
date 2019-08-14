@@ -1,4 +1,7 @@
-package com.liulishuo.okdownload.sample.util;
+package com.cy.okdownload;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.cy.app.UtilContext;
 import com.liulishuo.okdownload.DownloadListener;
@@ -11,7 +14,7 @@ import java.io.File;
 public class UtilDownload {
 
     public static DownloadTask createTask(BeanUrl beanUrl) {
-        final File parentFile = DemoUtil.getParentFile(UtilContext.getContext());
+        final File parentFile = getUsableCacheDir(UtilContext.getContext());
         DownloadTask task = new DownloadTask.Builder(beanUrl.getUrl(), parentFile)
                 .setFilename(beanUrl.getName())
                 // the minimal interval millisecond for callback progress
@@ -66,26 +69,12 @@ public class UtilDownload {
         }
     }
 
-    public static class BeanUrl {
-        public String url;
-        public String name;
-
-        public String getUrl() {
-            return url;
-        }
-
-        public BeanUrl setUrl(String url) {
-            this.url = url;
-            return this;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public BeanUrl setName(String name) {
-            this.name = name;
-            return this;
+    public static File getUsableCacheDir(@NonNull Context context) {
+        final File externalSaveDir = context.getExternalCacheDir();
+        if (externalSaveDir == null) {
+            return context.getCacheDir();
+        } else {
+            return externalSaveDir;
         }
     }
 

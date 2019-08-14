@@ -27,6 +27,7 @@ import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cy.okdownload.UtilDownload;
 import com.liulishuo.okdownload.DownloadListener;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.StatusUtil;
@@ -100,7 +101,7 @@ public class NotificationActivity extends BaseSampleActivity {
 
     private void initTask() {
         task = new DownloadTask
-                .Builder(DemoUtil.URL, DemoUtil.getParentFile(this))
+                .Builder(DemoUtil.URL, UtilDownload.getUsableCacheDir(this))
                 .setFilename("notification-file.apk")
                 // if there is the same task has been completed download, just delete it and
                 // re-download automatically.

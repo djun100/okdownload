@@ -21,12 +21,13 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.SeekBar;
 
+import com.cy.okdownload.BeanUrl;
+import com.cy.okdownload.UtilDownload;
 import com.liulishuo.okdownload.DownloadContext;
 import com.liulishuo.okdownload.DownloadContextListener;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.sample.R;
 import com.liulishuo.okdownload.sample.util.DemoUtil;
-import com.liulishuo.okdownload.sample.util.UtilDownload;
 import com.liulishuo.okdownload.sample.util.queue.QueueRecyclerAdapter.QueueViewHolder;
 
 import java.io.File;
@@ -51,7 +52,7 @@ public class QueueController {
     DownloadContext.Builder builder;
     public void initTasks(@NonNull Context context, @NonNull DownloadContextListener listener) {
         final DownloadContext.QueueSet set = new DownloadContext.QueueSet();
-        final File parentFile = new File(DemoUtil.getParentFile(context), "queue");
+        final File parentFile = new File(UtilDownload.getUsableCacheDir(context), "queue");
         this.queueDir = parentFile;
 
         set.setParentPathFile(parentFile);
@@ -59,7 +60,7 @@ public class QueueController {
 
         builder = set.commit();
 
-        for (UtilDownload.BeanUrl beanUrl:DemoUtil.getBeanUrls()){
+        for (BeanUrl beanUrl:DemoUtil.getBeanUrls()){
             DownloadTask boundTask = builder.bind(beanUrl.getUrl());
             TagUtil.saveTaskName(boundTask, beanUrl.getName());
         }

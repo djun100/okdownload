@@ -23,6 +23,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.cy.okdownload.BeanUrl;
+import com.cy.okdownload.UtilDownload;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.SpeedCalculator;
 import com.liulishuo.okdownload.StatusUtil;
@@ -35,14 +37,9 @@ import com.liulishuo.okdownload.core.listener.assist.Listener4SpeedAssistExtend;
 import com.liulishuo.okdownload.sample.R;
 import com.liulishuo.okdownload.sample.base.BaseSampleActivity;
 import com.liulishuo.okdownload.sample.util.DemoUtil;
-import com.liulishuo.okdownload.sample.util.UtilDownload;
 
 import org.jetbrains.annotations.Nullable;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
 import java.util.List;
 import java.util.Map;
 
@@ -69,7 +66,7 @@ public class SingleActivity extends BaseSampleActivity {
         actionTv=findViewById(R.id.actionTv);
 
 
-        task = UtilDownload.createTask(new UtilDownload.BeanUrl()
+        task = UtilDownload.createTask(new BeanUrl()
                 .setUrl("http://dldir1.qq.com/weixin/android/weixin6516android1120.apk")
                 .setName("single-test"));
         mSingleDownloadListener=new SingleDownloadListener();

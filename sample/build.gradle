@@ -65,21 +65,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "com.android.support.constraint:constraint-layout:1.0.2"
 
-//    implementation project(':okdownload')
-//    implementation project(':sqlite')
-//    implementation project(':okhttp')
-//    implementation project(':filedownloader')
+    implementation project(':wrapper')
 
-// core
-    implementation "com.liulishuo.okdownload:okdownload:1.0.5"
-// provide sqlite to store breakpoints
-    implementation "com.liulishuo.okdownload:sqlite:1.0.5"
-// provide okhttp to connect to backend
-// and then please import okhttp dependencies by yourself
-    implementation "com.liulishuo.okdownload:okhttp:1.0.5"
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
-    implementation 'com.github.djun100:UtilAndroid:-SNAPSHOT'
 }
 
 kotlin {

@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.cy.okdownload.UtilDownload;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.SpeedCalculator;
 import com.liulishuo.okdownload.StatusUtil;
@@ -127,7 +128,7 @@ public class EachBlockProgressActivity extends BaseSampleActivity {
 
     private DownloadTask createTask(String url) {
         final String filename = "each-block-progress-test";
-        final File parentFile = DemoUtil.getParentFile(this);
+        final File parentFile = UtilDownload.getUsableCacheDir(this);
         return new DownloadTask.Builder(url, parentFile)
                 .setFilename(filename)
                 // the minimal interval millisecond for callback progress

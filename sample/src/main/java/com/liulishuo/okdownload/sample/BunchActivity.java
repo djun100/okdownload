@@ -28,6 +28,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.cy.okdownload.UtilDownload;
 import com.liulishuo.okdownload.DownloadContext;
 import com.liulishuo.okdownload.DownloadListener;
 import com.liulishuo.okdownload.DownloadContextListener;
@@ -81,7 +82,7 @@ public class BunchActivity extends BaseSampleActivity {
 
         initViews();
 
-        bunchDir = new File(DemoUtil.getParentFile(this), "bunch");
+        bunchDir = new File(UtilDownload.getUsableCacheDir(this), "bunch");
 
         initListener();
         initAction();
